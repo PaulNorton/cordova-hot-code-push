@@ -54,7 +54,7 @@ public class URLUtility {
 
         String startingPart = removeStartingDash(urlParts[0]);
         startingPart = removeEndingDash(startingPart);
-        if (!startingPart.startsWith("http")) {
+        if (!startingPart.startsWith("http") && !startingPart.startsWith("file://")) {
             builder.append("http://");
         }
         builder.append(startingPart);
