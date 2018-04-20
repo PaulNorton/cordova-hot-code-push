@@ -684,6 +684,10 @@ public class HotCodePushPlugin extends CordovaPlugin {
         PluginResult result = PluginResultHelper.pluginResultFromEvent(event);
         sendMessageToDefaultCallback(result);
 
+        fileStructure.switchToRelease(pluginInternalPrefs.getCurrentReleaseVersionName());
+        dontReloadOnStart = true;
+        redirectToLocalStorageIndexPage();
+
         if (chcpXmlConfig.isAutoDownloadIsAllowed() &&
                 !UpdatesInstaller.isInstalling() && !UpdatesLoader.isExecuting()) {
             fetchUpdate();

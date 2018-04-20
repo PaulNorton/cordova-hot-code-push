@@ -468,6 +468,9 @@ static NSString *const DEFAULT_STARTING_PAGE = @"index.html";
     // send notification to web
     [self invokeDefaultCallbackWithMessage:[CDVPluginResult pluginResultForNotification:notification]];
     
+    _filesStructure = [[HCPFilesStructure alloc] initWithReleaseVersion:_pluginInternalPrefs.currentReleaseVersionName];
+    [self resetIndexPageToExternalStorage];
+
     // fetch update
     [self loadApplicationConfig];
     
